@@ -36,6 +36,18 @@ function App() {
     setCurrentPage(pgNumber);
   };
 
+  // Handle Previous Button Click
+  const handlePrevious = () => {
+    console.log("Previous Button Clicked");
+    setCurrentPage(currentPage - 1);
+  };
+
+  // Handle Next Button Click
+  const handleNext = () => {
+    console.log("Next Button Clicked");
+    setCurrentPage(currentPage + 1);
+  };
+
   return (
     <div className="container mt-5">
       <h1 className="text-primary mb-5">React Pagination with API (POC)</h1>
@@ -46,6 +58,8 @@ function App() {
         postsPerPage={postsPerPage}
         totalPosts={posts.length}
         paginate={paginate}
+        handlePrevious={handlePrevious}
+        handleNext={handleNext}
       />
       {/* Note : paginate prop is just a callback function for child to parent */}
     </div>
