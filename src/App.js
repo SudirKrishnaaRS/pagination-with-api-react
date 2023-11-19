@@ -38,14 +38,18 @@ function App() {
 
   // Handle Previous Button Click
   const handlePrevious = () => {
-    console.log("Previous Button Clicked");
-    setCurrentPage(currentPage - 1);
+    if (currentPage > 1) {
+      console.log("Previous Button Clicked");
+      setCurrentPage(currentPage - 1);
+    }
   };
 
   // Handle Next Button Click
   const handleNext = () => {
-    console.log("Next Button Clicked");
-    setCurrentPage(currentPage + 1);
+    if (currentPage < Math.ceil(posts.length / postsPerPage)) {
+      console.log("Next Button Clicked");
+      setCurrentPage(currentPage + 1);
+    }
   };
 
   return (
