@@ -12,6 +12,8 @@ function App() {
   const [postsPerPage, setPostsPerPage] = useState(10);
 
   useEffect(() => {
+
+    // Api call to fetch all the posts using Axios
     const fetchPosts = async () => {
       setLoading(true);
       const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
@@ -33,10 +35,9 @@ function App() {
 
   // Handle Page Change
   const paginate = (pgNumber) => {
-    if(pgNumber !== currentPage)
-    {
+    if (pgNumber !== currentPage) {
       // To scroll to top of the page when the navigating to a different page
-      window.scrollTo(0,0);
+      window.scrollTo(0, 0);
       setCurrentPage(pgNumber);
     }
   };
