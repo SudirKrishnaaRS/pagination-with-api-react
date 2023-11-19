@@ -9,7 +9,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   // eslint-disable-next-line no-unused-vars
-  const [postsPerPage, setPostsPerPage] = useState(5);
+  const [postsPerPage, setPostsPerPage] = useState(10);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -33,7 +33,12 @@ function App() {
 
   // Handle Page Change
   const paginate = (pgNumber) => {
-    setCurrentPage(pgNumber);
+    if(pgNumber !== currentPage)
+    {
+      // To scroll to top of the page when the navigating to a different page
+      window.scrollTo(0,0);
+      setCurrentPage(pgNumber);
+    }
   };
 
   // Handle Previous Button Click
